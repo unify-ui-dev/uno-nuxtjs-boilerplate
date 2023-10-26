@@ -10,31 +10,61 @@
             </div>
             <nav>
                 <ul class="flex flex-wrap items-center justify-center gap-6">
-                    <li>
-                        <nuxt-link to="#" un-text="hover:purple-6 dark:hover:purple-5" class="duration-200">Home</nuxt-link>
-                    </li>
-                    <li>
-                        <nuxt-link to="#" un-text="hover:purple-6 dark:hover:purple-5" class="duration-200">About</nuxt-link>
-                    </li>
-                    <li>
-                        <nuxt-link to="#" un-text="hover:purple-6 dark:hover:purple-5" class="duration-200">Services</nuxt-link>
+                    <li v-for="footerItem in footerItems" :key="footerItem.id">
+                        <nuxt-link :to="footerItem.link" un-text="hover:purple-6 dark:hover:purple-5" class="duration-200">
+                            {{ footerItem.text }}
+                        </nuxt-link>
                     </li>
                 </ul>
             </nav>
             <div class="md-flex-1 flex justify-center md-justify-end gap-3">
-                <nuxt-link to="#" aria-label="social link">
-                    <span i-carbon-logo-twitter text-2xl flex></span>
-                </nuxt-link>
-                <nuxt-link to="#" aria-label="social link">
-                    <span i-carbon-logo-linkedin text-2xl flex></span>
-                </nuxt-link>
-                <nuxt-link to="#" aria-label="social link">
-                    <span i-carbon-logo-instagram text-2xl flex></span>
-                </nuxt-link>
-                <nuxt-link to="#" aria-label="social link">
-                    <span i-carbon-logo-facebook text-2xl flex></span>
+                <nuxt-link v-for="socialLink in socialLinks" :key="socialLink.id" :to="socialLink.link" aria-label="social link">
+                    <span  text-2xl flex :class="socialLink.icon"/>
                 </nuxt-link>
             </div>
         </div>
     </footer>
 </template>
+
+<script lang="ts" setup>
+const footerItems = [
+    {
+        id:1,
+        text:"Home",
+        link:"#"
+    },
+    {
+        id:1,
+        text:"About",
+        link:"#"
+    },
+    {
+        id:1,
+        text:"Services",
+        link:"#"
+    },
+]
+
+const socialLinks = [
+    {
+        id:1,
+        link:"#",
+        icon:"i-carbon-logo-twitter"
+    },
+    {
+        id:2,
+        link:"#",
+        icon:"i-carbon-logo-linkedin"
+    },
+    {
+        id:3,
+        link:"#",
+        icon:"i-carbon-logo-instagram"
+    },
+    {
+        id:4,
+        link:"#",
+        icon:"i-carbon-logo-facebook"
+    },
+]
+</script>
