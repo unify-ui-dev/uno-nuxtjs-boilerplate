@@ -9,6 +9,6 @@
 <style>
 @import '@unocss/reset/tailwind.css';
 body{
-    @apply bg-neutral50 dark-bg-neutral950 font-dms
+    @apply bg-neutral50 dark-bg-neutral950 font-dms min-h-screen flex flex-col
 }
 </style>
